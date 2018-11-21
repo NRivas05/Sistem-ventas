@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (){
     return view('welcome');
 });
+
+Route::resource('almacen/categoria', 'CategoriaController');
+Route::get('almacen/categoria/{id}', 'CategoriaController@edit');
+Route::post('almacen/categoria/{id}', 'CategoriaController@update');
+Route::get('destroy/{id}', 'CategoriaController@destroy');
