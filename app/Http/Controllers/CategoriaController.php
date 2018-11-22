@@ -17,21 +17,21 @@ class CategoriaController extends Controller
 
     }
 
-    public function index()
+    public function index(Request $request)
 {
-    /*if ($request)
+    if ($request)
         {
             $query=trim($request->get('searchText'));
             $categorias=DB::table('categorias')->where('nombre', 'LIKE', '%'.$query.'%')
             ->where ('condicion', '=', '1')
-            ->orderBy('idcategorias', 'desc')
+            ->orderBy('id', 'desc')
             ->paginate(7);
 
-            return view('almacen.categoria.index', ['categorias'=>$categorias, "searchText"=>$query]);
+            return view('almacen/categoria/index', ['categorias'=>$categorias, "searchText"=>$query]);
 
-        }*/
-        $cate = DB::Table('categorias')->where('condicion', '=', '1')->get();
-        return view("almacen/categoria/index")->with('lista', $cate);
+        }
+        /*$cate = DB::Table('categorias')->where('condicion', '=', '1')->get();
+        return view("almacen/categoria/index")->with('lista', $cate);*/
     }
 
     public function create()
